@@ -24,8 +24,9 @@ pipeline {
 		}
 		post {
      			always {
-            			junit 'build/reports/**/*.xml'
+				sh 'curl -i http://localhost:8082'
        			 }
+	
    		 }
 	
         }
