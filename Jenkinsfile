@@ -22,6 +22,11 @@ pipeline {
                 		sh 'curl -i http://localhost:8082'
             		}
 		}
+		post {
+     			always {
+            			junit 'build/reports/**/*.xml'
+       			 }
+   		 }
 	
         }
 }
