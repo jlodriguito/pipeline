@@ -19,6 +19,7 @@ pipeline {
 		}
         	stage('test') {
        			steps {
+				sh 'sleep 10'
                 		sh 'curl -i http://localhost:8082 >> output.txt'
             		}
 		}
