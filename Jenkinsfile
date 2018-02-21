@@ -19,14 +19,15 @@ pipeline {
 		}
         	stage('test') {
        			steps {
-                		sh 'curl -i http://localhost:8082'
+                		sh 'curl -i http://localhost:8082 >> output.txt'
             		}
 		}
 	
         }
 	post {
         	always {
-            		sh 'curl -i http://localhost:8082'
+			archiveArtifacts artifacts: 'output.txt'
+            		sh 'curl -i http://localhost:8082 >> output.txt'
         	}
    	 }
 }
