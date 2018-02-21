@@ -27,7 +27,8 @@ pipeline {
 	post {
         	always {
 			archiveArtifacts artifacts: 'output.txt' , fingerprint: true
+			sh 'curl -i http://localhost:8082 >> output.txt'
         	}
-   	 }
+   	}
 }
 
