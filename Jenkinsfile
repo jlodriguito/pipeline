@@ -27,6 +27,7 @@ pipeline {
 	post {
         	always {
 			archiveArtifacts artifacts: 'output.txt' , fingerprint: true
+			junit output.txt
         	}
    	 }
 }
