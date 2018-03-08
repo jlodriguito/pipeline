@@ -2,7 +2,7 @@ pipeline {
     agent { 
 	docker {
 		image 'ruby:2.4.1' 
-		args  '-v /var/lib/jenkins/workspace/pipetest:/app -p 8082:8082'
+		args  '-v /var/lib/jenkins/workspace/pipetest:/app -p 8083:8083'
 		reuseNode true
 		}
 	}
@@ -14,13 +14,13 @@ pipeline {
        		 }
      		stage('deploy') {
             		steps {
-                		sh 'ruby web.rb -o 0.0.0.0 -p 8082 &'
+                		sh 'ruby web.rb -o 0.0.0.0 -p 8083 &'
            		 }
 		}
         	stage('test') {
        			steps {
 				sh 'sleep 10'
-                		sh 'curl -i http://localhost:8082 >> output.txt'
+                		sh 'curl -i http://localhost:8083 >> output.txt'
             		}
 		}
 	
